@@ -11,12 +11,12 @@ pub fn build(b: *std.Build) void {
     });
 
     lib.addCSourceFiles(&.{
-        "../../src/webui.c",
-        "../../src/mongoose.c",
+        "src/webui.c",
+        "src/mongoose.c",
     }, &.{""});
     lib.linkLibC();
-    lib.addIncludePath("../../include");
-    lib.installHeadersDirectory("../../include", "");
+    lib.addIncludePath("include");
+    lib.installHeadersDirectory("include", "");
     lib.install();
 
     if (target.isWindows()) {
