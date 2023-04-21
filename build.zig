@@ -17,7 +17,8 @@ pub fn build(b: *std.Build) void {
     lib.linkLibC();
     lib.addIncludePath("include");
     lib.installHeadersDirectory("include", "");
-    lib.install();
+
+    _ = b.addInstallArtifact(lib);
 
     if (target.isWindows()) {
         lib.linkSystemLibrary("ws2_32");
